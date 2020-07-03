@@ -11,6 +11,7 @@ const answers = {
         { ch: '七', en: 'seven', }, 
         { ch: '八', en: 'eight', }, 
         { ch: '九', en: 'nine', }, 
+        { ch: '十', en: 'ten', }, 
         { ch: '十一', en: 'eleven', },
         { ch: '十二', en: 'twelve', },
         { ch: '十三', en: 'thirteen', },
@@ -57,9 +58,9 @@ const answers = {
 for (let prop in answers) {
     for (let i = 0, length = answers[prop].length; i < length; i++) {
         answers[prop][i].audio = `
-            <button type="button" onclick="document.querySelector('[src=\\'./english/${(() => answers[prop][i].en.replace(' ', '_'))()}.mp3\\']').play()">
+            <button type="button" onclick="document.querySelector('[src=\\'./english/${(() => answers[prop][i].en.replace(/ /g, '_'))()}.mp3\\']').play()">
                 &#9654;
-                <audio preload="none" src="./english/${(() => answers[prop][i].en.replace(' ', '_'))()}.mp3"></audio>
+                <audio preload="none" src="./english/${(() => answers[prop][i].en.replace(/ /g, '_'))()}.mp3"></audio>
             </button>
         `
     }
